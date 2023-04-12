@@ -15,14 +15,18 @@ public class App {
         final double maxTemp = 250d;
 
         RoomTemperature temperature = RoomTemperature.getInstance();
-        temperature.setTemperature(180d);
+        temperature.setTemperature(500d);
+        System.out.println(temperature.toString());
         Heater heater = new GasHeater();
         Thermometer thermometer = new RemoteCommandSensor();
 
         Regulate regulator = new Regulator(minTemp, maxTemp);
 
-        System.out.println("Arrancando...");
+        System.out.println("\n\nRegulando temperatura...\n\n");
         regulator.regulate(thermometer, heater, temperature);
+
+        System.out.println(regulator.toString());
+        System.out.println(temperature.toString());
 
     }
 }

@@ -29,4 +29,9 @@ public class RoomTemperature {
         setTemperature(getTemperature() + increment);
     }
 
+    @Override
+    public String toString() {
+        return "Temperatura actual: " + getTemperature();
+    }
+
 }

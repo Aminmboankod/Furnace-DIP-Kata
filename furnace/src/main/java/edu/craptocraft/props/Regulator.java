@@ -53,4 +53,9 @@ public class Regulator implements Regulate {
                 .forEach(t -> temperature.updateTemperature(1));
     }
 
+    @Override
+    public String toString() {
+        return "Temperatura mínima: " + getMinTemp() + "\nTemperatura máxima: " + getMaxTemp();
+    }
+
 }

@@ -1,8 +1,10 @@
 package edu.craptocraft.domain;
 
+import edu.craptocraft.furnace.RoomTemperature;
+
 public interface Heater {
 
-    void engage();
+    void engage(RoomTemperature temperature);
 
-    void disangage();
+    void disangage(RoomTemperature temperature);
 }

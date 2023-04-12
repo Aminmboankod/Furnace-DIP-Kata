@@ -19,7 +19,7 @@ public class App {
         Heater heater = new GasHeater();
         Thermometer thermometer = new RemoteCommandSensor();
 
-        Regulate regulator = new Regulator();
+        Regulate regulator = new Regulator(minTemp, maxTemp);
 
         System.out.println("Arrancando...");
         regulator.regulate(thermometer, heater, minTemp, maxTemp, temperature);

@@ -46,6 +46,11 @@ public class Regulator implements Regulate {
                 .limit(Long.MAX_VALUE)
                 .takeWhile(t -> t > this.getMaxTemp())
                 .forEach(t -> temperature.updateTemperature(-1));
+
+        Stream.iterate(currentTemperature.read(temperature), t -> currentTemperature.read(temperature))
+                .limit(Long.MAX_VALUE)
+                .takeWhile(t -> t < this.getMinTemp())
+                .forEach(t -> temperature.updateTemperature(1));
     }
 
 }

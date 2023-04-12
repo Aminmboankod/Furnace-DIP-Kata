@@ -35,6 +35,9 @@ public class RegulatorTest {
 
     @Test
     public void testRegulateDisengage() {
-
+        temperature.setTemperature(50.0);
+        assertEquals(50.0, temperature.getTemperature(), 0);
+        regulator.regulate(thermometer, heater, temperature);
+        assertEquals(80.0, temperature.getTemperature(), 0);
     }
 }

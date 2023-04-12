@@ -7,14 +7,12 @@ public class GasHeater implements Heater {
 
     @Override
     public void engage(RoomTemperature temperature) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'engage'");
+        temperature.updateTemperature(1);
     }
 
     @Override
     public void disangage(RoomTemperature temperature) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'disangage'");
+        temperature.updateTemperature(-1);
     }
 
 }

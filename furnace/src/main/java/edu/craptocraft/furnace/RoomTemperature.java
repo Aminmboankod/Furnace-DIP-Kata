@@ -23,4 +23,10 @@ public class RoomTemperature {
         this.currentTemperature = temperature;
     }
 
+    // método necesario para engage y disengage en GasHeater
+    public void updateTemperature(double increment) {
+
+        setTemperature(getTemperature() + increment);
+    }
+
 }

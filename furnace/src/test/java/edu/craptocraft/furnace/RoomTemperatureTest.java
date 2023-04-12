@@ -28,4 +28,13 @@ public class RoomTemperatureTest {
         assertEquals(tempValue, temperature.getTemperature(), 0.001);
     }
 
+    @Test
+    public void testUpdateTemperature() {
+        double initialTemp = 25.0;
+        double increment = 5.0;
+        temperature.setTemperature(initialTemp);
+        temperature.updateTemperature(increment);
+        assertEquals(initialTemp + increment, temperature.getTemperature(), 0.001);
+    }
+
 }

@@ -1,5 +1,7 @@
 package edu.craptocraft.props;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -25,6 +27,10 @@ public class RegulatorTest {
     @Test
     public void testRegulateEngage() {
 
+        temperature.setTemperature(221.0);
+        assertEquals(221.0, temperature.getTemperature(), 0);
+        regulator.regulate(thermometer, heater, temperature);
+        assertEquals(220.0, temperature.getTemperature(), 0);
     }
 
     @Test

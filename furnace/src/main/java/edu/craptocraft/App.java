@@ -22,7 +22,7 @@ public class App {
         Regulate regulator = new Regulator(minTemp, maxTemp);
 
         System.out.println("Arrancando...");
-        regulator.regulate(thermometer, heater, minTemp, maxTemp, temperature);
+        regulator.regulate(thermometer, heater, temperature);
 
     }
 }

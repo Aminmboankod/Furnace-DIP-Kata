@@ -1,5 +1,7 @@
 package edu.craptocraft.props;
 
+import java.util.stream.Stream;
+
 import edu.craptocraft.domain.Heater;
 import edu.craptocraft.domain.Regulate;
 import edu.craptocraft.domain.Thermometer;
@@ -32,9 +34,18 @@ public class Regulator implements Regulate {
     }
 
     @Override
-    public void regulate(Thermometer t, Heater h, double minTemp, double maxTemp, RoomTemperature temperature) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'regulate'");
+    public void regulate(Thermometer currentTemperature, Heater h, RoomTemperature temperature) {
+
+        /*
+         * creo una secuencia infinita de valores con Stream.iterate
+         * lo limito usando .limit()
+         * utilizo takeWhile() para detener el flujo
+         * cuando llega a la temperatura máxima
+         */
+        Stream.iterate(currentTemperature.read(temperature), t -> currentTemperature.read(temperature))
+                .limit(Long.MAX_VALUE)
+                .takeWhile(t -> t > this.getMaxTemp())
+                .forEach(t -> temperature.updateTemperature(-1));
     }
 
 }
